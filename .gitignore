@@ -9,4 +9,4 @@ dist/
 .idea/
 .vscode/
 .hypothesis/
-actions-runner
+docker-compose.yml
