@@ -7,7 +7,19 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Diagnostics
+        run: |
+          uname -a
+          which git curl || true
+          uv --version
+          git ls-files tests
+          ls -la
 
+      - name: Sync dependencies
+        run: uv sync --python 3.13 --all-groups
+
+      - name: Run tests with pytest
+        run: uv run --python 3.13 pytest -v tests/connect_four
       - name: Checkout repository
         uses: actions/checkout@v4
 
