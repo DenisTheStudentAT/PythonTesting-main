@@ -30,3 +30,5 @@ uv run ruff format               # format
 uv run ty check                  # type check
 uv run connect-four              # play Connect Four
 ```
+
+Small change to commit
