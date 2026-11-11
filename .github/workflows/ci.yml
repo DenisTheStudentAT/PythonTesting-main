@@ -17,4 +17,4 @@ jobs:
           enable-cache: true
 
       - name: Run tests with pytest
-        run: uv run --python 3.13 pytest/connect-four
+        run: uv run --python 3.13 pytest/connect_four
