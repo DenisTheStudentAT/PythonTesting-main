@@ -1,0 +1,35 @@
+[project]
+name = "testing-course"
+version = "0.1.0"
+description = "Course template for learning unit testing and TDD with pytest"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+connect-four = "testing_course.connect_four.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.170.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.0",
+    "ty>=0.0.87",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.coverage.run]
+source = ["testing_course"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "PT"]
+
+[tool.ty.environment]
+python-version = "3.13"
