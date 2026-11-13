@@ -1,6 +1,6 @@
 name: Python CI Pipeline
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test:
@@ -14,7 +14,23 @@ jobs:
         uses: astral-sh/setup-uv@v6
         
       - name: Install dependencies
-        run: uv sync
+        run: uv sync                # there was always a failure with this line. It took bit too much to find out, where can I see the description of a failure 
 
       - name: Run tests with pytest
         run: uv run pytest
+  
+  checks:
+    runs-on: self-host
+
+    steps:
+      - name: ruff check
+        run: uv run ruff check
+
+      - name: ty check
+        run: uv run ty check
+      
+      - name: ruff format
+        run: uv run ruff format
+
+      
+      
