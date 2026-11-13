@@ -23,14 +23,17 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install dependencies
+        run: uv sync
+
       - name: ruff check
         run: uv run ruff check
 
       - name: ty check
         run: uv run ty check
-      
-      - name: ruff format
-        run: uv run ruff format
 
       
       
